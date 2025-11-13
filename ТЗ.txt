@@ -1,0 +1,45 @@
+Технологии (кандидат выбирает)
+
+Backend: Python (FastAPI / Django / Flask) или PHP (Laravel)
+
+БД: MySQL или PostgreSQL (+ ORM: SQLAlchemy / Django ORM / Eloquent)
+
+Опционально: Frontend на Vue.js или React.js
+
+Опционально: Docker для сборки/запуска
+
+Функционал backend
+
+Базовый REST API:
+
+Регистрация и логин
+
+POST /auth/register – email + пароль
+
+POST /auth/login – JWT токен
+
+Кошельки
+
+POST /wallets – создать кошелёк (название, валюта, например USD / USDT)
+
+GET /wallets – список своих кошельков с балансом
+
+GET /wallets/{id} – детали кошелька
+
+Переводы
+
+POST /wallets/{id}/transfer
+
+параметры: to_wallet_id, amount
+
+проверка баланса, запись транзакции
+
+GET /transactions – история транзакций (фильтр по кошельку)
+
+Модели в БД (минимум):
+
+User (id, email, пароль)
+
+Wallet (id, user_id, name, currency, balance)
+
+Transaction (id, from_wallet_id, to_wallet_id, amount, created_at)
